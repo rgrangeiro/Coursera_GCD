@@ -1,23 +1,31 @@
 ## Necessário criar application no site API do Twitter
 
+
 ## Depois processeguir utilizando os dados fornecidos pelo site da aplicação
+install.packages("httr")
+install.packages("httpuv")
+library(httr)
+library(httpuv)
+oauth_endpoints("github")
 myapp = oauth_app("twitter",
-                  key="yourConsumerKeyHere", ## fornecido ao criar o application no site API do twitter
-                  secret="yourConsumerSecretHere")  ## fornecido ao criar o application no site API do twitter
-si = sig_oauth1.0(myapp,
-                  token = "yourTokenHere", ## fornecido ao criar o application no site API do twitter
-                  token_secret = "yourTokenSecretHere") ## fornecido ao criar o application no site API do twitter
-homeTL = GET("https://api.twitter.com/1.1/statuses/home_timeLine.json", sig) ## 1.1 é a versão da API, JSON é o formato que o Twitter entrega por padrão.
+                  key="8e4e2ef0cf93646cc332", ## fornecido ao criar o application no site API do twitter
+                  secret="97b5879d2bf14040bfeec9128a780229eb9289fb"); myapp  ## fornecido ao criar o application no site API do twitter
+github_token <- oauth2.0_token(oauth_endpoints("github"), myapp);github_token
 
-## Pacote para trabalhar com JSON
-install.packages("RJSONIO")
-library(RJSONIO)
+gtoken <- config(token = github_token);gtoken
+req <- GET("https://api.github.com/rate_limit", gtoken);req
+stop_for_status(req)
+content(req)
+## ou
+req <- with_config(gtoken, GET("https://api.github.com/rate_limit"))
+stop_for_status(req)
+content(req)
 
+github_token <- oauth2.0_token(oauth_endpoints("github"), myapp)
 
-## Extraindo as informações
-json1 = content(homeTL) ## função content() reconhece dados JSON
-
-## criar um objeto R estruturado - usar fromJSON
-## criar um dataframe a partir desse dado e reformatando - jsonlite
-json2 = jsonline::fromJSON(toJSON(json1))
+# 4. Use API
+req <- GET("https://api.github.com/users/jtleek/repos", config(token = github_token))
+stop_for_status(req)
+output <- content(req)
+list(output[[4]]$name, output[[4]]$created_at)
 
