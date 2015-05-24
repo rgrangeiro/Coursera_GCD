@@ -117,12 +117,12 @@ library(rmarkdown)</code></pre>
 <h4>1. Merges the training and the test sets to create one data set.</h4>
 <ul>
 <li><p>Reading “Test” files and load in datasets.</p>
-<pre><code>testActivity  &lt;- read.table(&quot;./UCI HAR Dataset/test/Y_test.txt&quot;, header = FALSE)
-testSubject   &lt;- read.table(&quot;./UCI HAR Dataset/test/subject_test.txt&quot;, header = FALSE)
-testFeatures  &lt;- read.table(&quot;./UCI HAR Dataset/test/X_test.txt&quot;, header = FALSE)</code></pre></li>
+<pre><code>testActivity &lt;- read.table(&quot;./UCI HAR Dataset/test/Y_test.txt&quot;, header = FALSE)
+testSubject &lt;- read.table(&quot;./UCI HAR Dataset/test/subject_test.txt&quot;, header = FALSE)
+testFeatures &lt;- read.table(&quot;./UCI HAR Dataset/test/X_test.txt&quot;, header = FALSE)</code></pre></li>
 <li><p>Reading “Train” files and load in datasets.</p>
 <pre><code>trainActivity &lt;- read.table(&quot;./UCI HAR Dataset/train/Y_train.txt&quot;, header = FALSE)
-trainSubject  &lt;- read.table(&quot;./UCI HAR Dataset/train/subject_train.txt&quot;, header = FALSE)
+trainSubject &lt;- read.table(&quot;./UCI HAR Dataset/train/subject_train.txt&quot;, header = FALSE)
 trainFeatures &lt;- read.table(&quot;./UCI HAR Dataset/train/X_train.txt&quot;, header = FALSE)</code></pre></li>
 <li><p>Binding “Test” and “Train” datasets in a “Data” dataset.</p>
 <pre><code>dataActivity &lt;- rbind(trainActivity, testActivity)
@@ -136,7 +136,7 @@ labelsActivity &lt;- read.table(&quot;./UCI HAR Dataset/activity_labels.txt&quot
 <h5>1.1 Setting variable names.</h5>
 <div id="set-variables-column-names-to-subject-activity-and-features-datasets." class="section level6">
 <h6>Set variables (column names) to “Subject”, “Activity” and “Features” datasets.</h6>
-<pre><code>names(dataSubject)&lt;- c(&quot;Subject&quot;)
+<pre><code>names(dataSubject) &lt;- c(&quot;Subject&quot;)
 names(dataActivity) &lt;- c(&quot;Activity&quot;)
 names(dataFeatures) &lt;- features$V2</code></pre>
 </div>
