@@ -68,9 +68,9 @@ trainFeatures <- read.table("./UCI HAR Dataset/train/X_train.txt", header = FALS
 
 + Binding "Test" and "Train" datasets in a "Data" dataset.
 ```
-dataActivity<- rbind(trainActivity, testActivity)
+dataActivity <- rbind(trainActivity, testActivity)
 dataSubject <- rbind(trainSubject, testSubject)
-dataFeatures<- rbind(trainFeatures, testFeatures)
+dataFeatures <- rbind(trainFeatures, testFeatures)
 ```
 
 + Reading "Features" and "Activity Labels" files and load in datasets.
@@ -82,9 +82,9 @@ labelsActivity <- read.table("./UCI HAR Dataset/activity_labels.txt", header = F
 ##### 1.1 Setting variable names.
 ###### Set variables (column names) to "Subject", "Activity" and "Features" datasets.
 ```
-names(dataSubject)<-c("Subject")
-names(dataActivity)<- c("Activity")
-names(dataFeatures)<- features$V2
+names(dataSubject) <- c("Subject")
+names(dataActivity) <- c("Activity")
+names(dataFeatures) <- features$V2
 ```
 
 ##### 1.2  Binding datasets

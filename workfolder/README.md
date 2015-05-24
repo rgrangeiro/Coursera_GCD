@@ -24,7 +24,7 @@ Good luck!
 
 ***
 
-# Descrition of sections of the run_analysis.R file.
+# Description of sections of the run_analysis.R file.
 
 ***
 
